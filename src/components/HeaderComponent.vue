@@ -1,0 +1,92 @@
+<template>
+    <div>
+        <v-app-bar app color="primary" dark>
+            <v-app-bar-nav-icon @click.stop="menu"></v-app-bar-nav-icon>
+            <v-toolbar-title class="headline text-uppercase">
+                <router-link to="/" class="text-style font-weight-bold">GESTÃO DE PROJETOS</router-link>
+            </v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items class="hidden-sm-and-down">
+
+                <v-btn text center @click="invertColor">
+                        <v-icon color="white">
+                            fa-adjust
+                        </v-icon>
+                </v-btn>
+                <v-tooltip v-if="false" bottom>
+                    <template v-slot:activator="{ on }">
+                        <v-btn :to="{name: 'SignIn' }" icon large v-on="on" >
+                            <v-icon>fa-user</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>Ver Perfil</span>
+                </v-tooltip>
+                <v-tooltip v-else bottom>
+                    <template v-slot:activator="{ on }">
+                        <v-btn :to="{name: 'SignIn' }" icon large v-on="on" >
+                            <v-icon>fa-sign-in-alt</v-icon>
+                        </v-btn>
+                    </template>
+                    <span>Entrar no Sistema</span>
+                </v-tooltip>
+
+                <v-btn text center>
+                    <v-img :src="icmbio"></v-img>
+                </v-btn>
+
+            </v-toolbar-items>
+        </v-app-bar>
+    </div>
+</template>
+
+<script>
+
+import icmbio from '../public/images/icmbio.png'
+
+export default {
+    name: 'header-component',
+    data(){
+        return {
+            icmbio: icmbio,
+            drawer: true,
+            items: [
+                {
+                    action: 'local_activity',
+                    title: 'Attractions',
+                    path: '/',
+                    items: [],
+                },
+                {
+                    action: 'restaurant',
+                    title: 'Breakfast',
+                    path: '/breakfast',
+                    items: []
+                },
+            ]
+        }
+    },
+    methods: {
+        menu() {
+            this.$root.$emit('changeMenu')
+        },
+        invertColor() {
+            this.$store.commit('invertColor');
+        }
+    },
+}
+</script>
+
+<style scoped>
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.text-style {
+  color: white;
+  text-decoration: none;
+  font-family: 'DDINRegular', Impact, Haettenschweiler, sans-serif
+
+}
+</style>

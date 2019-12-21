@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Contract from '../views/Contracts/Contract.vue'
 import ContractNew from '../views/Contracts/ContractNew.vue'
 import ContractList from '../views/Contracts/ContractList.vue'
+import ContractShow from '../views/Contracts/ContractShow.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,19 @@ const routes = [
     name: 'clients',
     component: Home
   },
+
+  {
+    path: '/contract/:id',
+    component: Contract,
+    children: [
+      {
+        path: '',
+        name:'ContractShow',
+        component: ContractShow
+      },
+    ]
+  },
+
   {
     path: '/contracts',
     component: Contract,
@@ -35,7 +49,7 @@ const routes = [
         path: 'new',
         component: ContractNew,
         name: 'ContractNew'
-      }
+      },
     ]
   }
 

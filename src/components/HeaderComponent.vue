@@ -3,12 +3,12 @@
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click.stop="menu"></v-app-bar-nav-icon>
             <v-toolbar-title class="headline text-uppercase">
-                <router-link to="/" class="text-style font-weight-bold">GESTÃO DE PROJETOS</router-link>
+                <router-link to="/" class="text-style font-weight-bold">SMART LOCKER</router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
 
-                <v-btn text center @click="invertColor">
+                <v-btn text center @click="'hi'">
                         <v-icon color="white">
                             fa-adjust
                         </v-icon>
@@ -31,7 +31,7 @@
                 </v-tooltip>
 
                 <v-btn text center>
-                    <v-img :src="icmbio"></v-img>
+                    <v-img small src=""></v-img>
                 </v-btn>
 
             </v-toolbar-items>
@@ -41,13 +41,11 @@
 
 <script>
 
-import icmbio from '../public/images/icmbio.png'
 
 export default {
     name: 'header-component',
     data(){
         return {
-            icmbio: icmbio,
             drawer: true,
             items: [
                 {
@@ -69,9 +67,7 @@ export default {
         menu() {
             this.$root.$emit('changeMenu')
         },
-        invertColor() {
-            this.$store.commit('invertColor');
-        }
+
     },
 }
 </script>

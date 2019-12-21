@@ -15,7 +15,6 @@
 
             </v-list-item>
 
-
             <v-list-group prepend-icon="fa-user-shield" no-action>
                 <template v-slot:activator>
                     <v-list-item-title>Admin</v-list-item-title>
@@ -37,37 +36,28 @@
 
 <script>
 
-import logoCanie from '../public/images/logo-canie-flashlight.png'
-
   export default {
       name: 'Leftmenu',
+      data () {
+          return {
+              drawer: true,
+              items: [
+                  { title: 'Inicio', icon: 'fa-home', route: '/'},
+                  { title: 'Novo contrato', icon: 'fa-upload', route: '/contracts/new'},
+                  { title: 'Meus contratos', icon: 'fa-file-alt', route: '/contracts'},
+              ],
+              adminItems: [
+                  { title: 'Contratos', icon: 'fa-folder', route: '/contracts' },
+                  { title: 'Clientes', icon: 'fa-users', route: '/clients' },
+              ],
+          };
+      },
       mounted() {
           this.$root.$on('changeMenu', () => {
               this.drawer = !this.drawer;
           });
       },
-      data () {
-          return {
-              drawer: true,
-              logoCanie,
-              items: [
-                  { title: 'Inicio', icon: 'fa-home', route: '/'},
-                  { title: 'Enviar Projeto', icon: 'fa-upload', route: '/projetos/novo'},
-                  { title: 'Meus projetos', icon: 'fa-file-alt', route: '/projetos'},
-              ],
-              adminItems: [
-                  { title: 'Projetos', icon: 'fa-folder', route: '/projetos' },
-                  { title: 'Usuarios', icon: 'fa-users', route: '/usuario' },
-              ],
-          };
-      },
       computed: {
-            logo() {
-                if(this.$store.state.invert)
-                    return logoCanie;
-                else
-                    return logoCanie;
-            }
       }
   }
 </script>

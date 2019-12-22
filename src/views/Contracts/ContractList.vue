@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-row>
-            <v-col cols="3" class="ma-2">
+            <v-col lg="3" cols="12" class="ma-2">
                 <h2>MEUS CONTRATOS</h2>
             </v-col>
             <v-spacer></v-spacer>

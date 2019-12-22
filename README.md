@@ -1,4 +1,4 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e4bc9352-46e6-45ed-ac0c-9102db0bf526/deploy-status)](https://app.netlify.com/sites/loopbox/deploys) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)] 
 
 # Contract Management
 Sample contract management application in VueJS Vue-CLI 4.

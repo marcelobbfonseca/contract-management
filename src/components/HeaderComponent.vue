@@ -3,7 +3,7 @@
         <v-app-bar app color="primary" dark>
             <v-app-bar-nav-icon @click.stop="menu"></v-app-bar-nav-icon>
             <v-toolbar-title class="headline text-uppercase">
-                <router-link to="/" class="text-style font-weight-bold">SMART LOCKER</router-link>
+                <router-link to="/" class="text-style font-weight-bold">LOOPBOX</router-link>
             </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">

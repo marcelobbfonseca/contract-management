@@ -8,32 +8,6 @@
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
 
-                <v-btn text center @click="'hi'">
-                        <v-icon color="white">
-                            fa-adjust
-                        </v-icon>
-                </v-btn>
-                <v-tooltip v-if="false" bottom>
-                    <template v-slot:activator="{ on }">
-                        <v-btn :to="{name: 'SignIn' }" icon large v-on="on" >
-                            <v-icon>fa-user</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>Ver Perfil</span>
-                </v-tooltip>
-                <v-tooltip v-else bottom>
-                    <template v-slot:activator="{ on }">
-                        <v-btn :to="{name: 'SignIn' }" icon large v-on="on" >
-                            <v-icon>fa-sign-in-alt</v-icon>
-                        </v-btn>
-                    </template>
-                    <span>Entrar no Sistema</span>
-                </v-tooltip>
-
-                <v-btn text center>
-                    <v-img small src=""></v-img>
-                </v-btn>
-
             </v-toolbar-items>
         </v-app-bar>
     </div>

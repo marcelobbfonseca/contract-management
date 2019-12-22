@@ -15,21 +15,6 @@
 
             </v-list-item>
 
-            <v-list-group prepend-icon="fa-user-shield" no-action>
-                <template v-slot:activator>
-                    <v-list-item-title>Admin</v-list-item-title>
-                </template>
-
-                    <v-list-item v-for="item in adminItems" :key="item.title" :to="item.route" >
-                        <v-list-item-icon>
-                            <v-icon v-text="item.icon"></v-icon>
-                        </v-list-item-icon>
-
-                        <v-list-item-title>
-                            {{item.title}}
-                        </v-list-item-title>
-                    </v-list-item>
-            </v-list-group>
         </v-list>
     </v-navigation-drawer>
 </template>

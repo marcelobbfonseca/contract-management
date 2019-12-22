@@ -1,6 +1,14 @@
 <template>
     <v-container>
-        <h1>Contrato {{ contract.name }}</h1>
+        <v-row>
+            <v-col>
+                <h1>Contrato {{ contract.name }}</h1>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col cols="1">
+                <v-btn color="primary" text to="/contracts">VOLTAR</v-btn>
+            </v-col>
+        </v-row>
 
         <title-divider
         title="IDENTIFICAÇÃO"
@@ -179,7 +187,16 @@ export default {
                     client:{
                         company:'',
                         cnpj:''
+                    },
+                    address:{
+                        zipcode: "",
+                        publicPlace: '',
+                        neighborhood: '',
+                        uf: '',
+                        location: '',
+                        complement:''
                     }
+
             },
             contracts: [
                 {
@@ -305,12 +322,17 @@ export default {
             ],
         }
     },
+    updated(){
+    },
     mounted(){
         this.findContract()
     },
     methods: {
         findContract(){
-            this.contract = this.contracts.find(element =>{ return element.id = this.$route.params.id})
+            this.contract = this.contracts.find(element =>{ 
+                if(element.id == this.$route.params.id)
+                    return element
+            })
         }
     }
 }

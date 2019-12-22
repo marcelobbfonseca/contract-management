@@ -1,6 +1,7 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)]
 
-# locker
+# Contract Management
+Sample contract management application in VueJS Vue-CLI 4.
 
 ## Project setup
 ```

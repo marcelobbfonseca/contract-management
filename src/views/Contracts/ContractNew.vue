@@ -110,7 +110,7 @@
                 <v-col>
                     <v-row>
                         <v-col>
-                            <v-textarea v-model="contract.tx_cronograma" label="Cronograma de execução">
+                            <v-textarea v-model="contract.execution" label="Cronograma de execução">
                             </v-textarea>
                         </v-col>
                     </v-row>
@@ -143,7 +143,7 @@
                 <v-col>
                     <v-row>
                         <v-col>
-                            <v-text-field v-model="address.zipCode" label="CEP">
+                            <v-text-field v-model="address.zipcode" label="CEP">
                             </v-text-field>
                         </v-col>
                     </v-row>
@@ -175,9 +175,9 @@
             </v-row>
 
             <v-row>
-                <v-btn text color="primary">DESCARTAR</v-btn>
+                <v-btn text color="primary" @click="clearForm">DESCARTAR</v-btn>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" :loading="loading">CRIAR</v-btn>
+                <v-btn color="primary" :loading="loading" @click="save">CRIAR</v-btn>
             </v-row>
 
         </v-container>
@@ -210,10 +210,10 @@ export default {
             },
             address:{
                 zipcode: null,
-                logradouro: '',
-                bairro: '',
+                publicPlace: '',
+                neighborhood: '',
                 uf: '',
-                localidade: '',
+                location: '',
                 complement:''
             },
 
@@ -244,6 +244,41 @@ export default {
             // .catch( error => {
             //     console.error(error)
             // })
+        },
+        save(){
+            this.loading = true
+            axios.post('api/v1/contracts', {
+                contract: this.contract,
+                address: this.address
+            }).then(() => {
+                this.loading = false
+            }).catch(() => {
+                this.loading = false
+            })
+        },
+        clearForm(){
+            if(confirm('Deseja descartar o que foi preenchido até agora?')== false)
+                return
+
+            this.contract = {
+                title: '',
+                description: '',
+                client: {
+                    company: '',
+                    cnpj:''
+                },
+                startsAt: new Date().toISOString().substr(0, 7),
+                endsAt: new Date().toISOString().substr(0, 7),
+                file: null,
+            }
+            this.address = {
+                zipcode: null,
+                logradouro: '',
+                bairro: '',
+                uf: '',
+                localidade: '',
+                complement:''
+            }
         }
     }
 }

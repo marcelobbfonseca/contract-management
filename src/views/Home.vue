@@ -1,11 +1,11 @@
 <template>
-  <v-content>
+  <v-container ma-2>
     <v-row>
-      <v-col ml-3>
+      <v-col>
         <h2>Gestão de contratos</h2>
       </v-col>
     </v-row>
-  </v-content>
+  </v-container>
 </template>
 
 <script>
